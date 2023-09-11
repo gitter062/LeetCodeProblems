@@ -5,7 +5,7 @@ A string is a palindrome if it reads the same forward as backward. That means,
 after reversing it, it is still the same string. For example: "abcdcba", or "racecar".
 */
 
-
+// Use two pointer technique
 // C++ program for the above approach
 #include <bits/stdc++.h>
 using namespace std;
