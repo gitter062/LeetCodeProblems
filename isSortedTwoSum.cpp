@@ -4,7 +4,7 @@ Example 2: Given a sorted array of unique integers and a target integer, return 
 For example, given nums = [1, 2, 4, 6, 8, 9, 14, 15] and target = 13, return true because 4 + 9 = 13.
 */
 
-// Use Two Pointer Technique
+// Use Two Pointer Technique, starting from the first and last elements respectively
 
 #include <bits/stdc++.h>
 
