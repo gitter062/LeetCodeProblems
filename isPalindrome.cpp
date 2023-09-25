@@ -8,25 +8,29 @@ after reversing it, it is still the same string. For example: "abcdcba", or "rac
 // Use two pointer technique
 // C++ program for the above approach
 #include <bits/stdc++.h>
+
 using namespace std;
 
 bool isPalindrome(string s){
-    int left = 0;
-    int right = s.size() - 1;
-    while(left < right){
-        if (s[left] != s[right]){
+    int rightPointer = s.size()-1;
+    int leftPointer = 0;
+
+    while(leftPointer < rightPointer){
+        if(s[leftPointer] != s[rightPointer])
             return false;
-        }
-        left++;
-        right--;
+        leftPointer++;
+        rightPointer--;
     }
+
     return true;
 }
 
-int main ()
-{
-    string S = "ABCDCBA";
-    cout << isPalindrome(S);
- 
+int main(){
+    string text1 = "ABCDCBA";
+    string text2 = "ABDCDA";
+    bool answer1 = isPalindrome(text1);
+    bool answer2 = isPalindrome(text2);
+    cout << answer1 <<' '<< answer2 << endl;
+
     return 0;
 }

@@ -7,37 +7,30 @@ For example, given nums = [1, 2, 4, 6, 8, 9, 14, 15] and target = 13, return tru
 // Use Two Pointer Technique, starting from the first and last elements respectively
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
-bool isSortedTwoSum(vector<int>& nums, int target){
-    int left = 0, right = nums.size()-1;
-
-    while(left<right){
-        if(nums[left] + nums[right] == target){
+bool isSortedTwoSum(vector<int> num, int target){
+    int rightPointer = num.size()-1;
+    int leftPointer = 0;
+    while(leftPointer < rightPointer){
+        if(num[leftPointer] + num[rightPointer] == target)
             return true;
-        }
-        else if(nums[left] + nums[right] < target)
-            left++;
+        else if (num[leftPointer] + num[rightPointer] < target)
+            leftPointer++;
         else
-            right--;
+            rightPointer--;
+        
     }
-
     return false;
 }
 
-int main()
-{
-    vector <int> nums{10, 12, 18, 30};
-    for(int inputArray:nums)
-        cout << inputArray<<" ";
+int main(){
+    vector <int> sortedArray {1, 2, 4, 6, 8, 9, 14, 15};
+    int targetSum = 5;
 
-    int target = 30;
-    if(isSortedTwoSum(nums, target))
+    if(isSortedTwoSum(sortedArray, targetSum))
         cout << "Two Sum Exists :)";
     else
         cout << "Two Sum does not Exist :(";
-
     return 0;
 }
-
