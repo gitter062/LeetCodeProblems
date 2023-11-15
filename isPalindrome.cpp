@@ -7,6 +7,7 @@ after reversing it, it is still the same string. For example: "abcdcba", or "rac
 
 // Use two pointer technique
 // C++ program for the above approach
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -14,14 +15,15 @@ using namespace std;
 bool isPalindrome(string s){
     int rightPointer = s.size()-1;
     int leftPointer = 0;
-
     while(leftPointer < rightPointer){
-        if(s[leftPointer] != s[rightPointer])
+        if(s[leftPointer] != s[rightPointer]){
+            cout << "Not a palindrome" << endl;
             return false;
+            }
         leftPointer++;
-        rightPointer--;
+        rightPointer--; 
     }
-
+    cout << "Its a palindrome" << endl;
     return true;
 }
 
@@ -30,7 +32,6 @@ int main(){
     string text2 = "ABDCDA";
     bool answer1 = isPalindrome(text1);
     bool answer2 = isPalindrome(text2);
-    cout << answer1 <<' '<< answer2 << endl;
 
     return 0;
 }
