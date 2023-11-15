@@ -13,28 +13,25 @@ order of the remaining characters. For example, "ace" is a subsequence of "abcde
 // increment the pointer that belongs to the reference string.
 
 #include <bits/stdc++.h>
+
 using namespace std;
+bool isSubstring(string referenceString, string candidateString){
+    int referencePointer = 0, candidatePointer = 0;
 
-bool isSubsequece(string sequenceString, string subString){
-    int sequecePointer = 0, subStringPointer = 0;
-    while(sequecePointer<sequenceString.size() and subStringPointer<subString.size()){
-        if(sequenceString[sequecePointer] == subString[subStringPointer])
-            subStringPointer++;
-        
-        sequecePointer++;
+    while(referencePointer < referenceString.size() && candidatePointer < candidateString.size()){
+        if(referenceString[referencePointer] == candidateString[candidatePointer]){
+            candidatePointer++;
+        }
+        referencePointer++;
     }
-    if (subStringPointer == subString.size())
-        return true;
 
-    return false;
+    return candidatePointer == candidateString.size();
 }
 
-
 int main(){
-    string candidateString1 = "ace";
-    string candidateString2 = "aec";
-    string referenceString = "abcde";
-    cout << isSubsequece(referenceString, candidateString1) << " " << isSubsequece(referenceString, candidateString2) << endl;
-    
+    string string1  = "abcde";
+    string string2 = "adc";
+
+    cout << "this is a " << isSubstring(string1, string2) << endl;
     return 0;
 }
