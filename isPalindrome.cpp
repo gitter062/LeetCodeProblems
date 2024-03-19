@@ -8,7 +8,9 @@ A string is a palindrome if it reads the same forward as backward. That means, a
 // C++ program for the above approach
 
 #include <bits/stdc++.h>
+
 using namespace std;
+
 
 bool isPalindrome(string str){
     int left = 0;
@@ -25,7 +27,6 @@ bool isPalindrome(string str){
     cout << "This is a Palindrome";
     return true;
 }
-
 
 int main(void){
     string string1 = "racecar";
