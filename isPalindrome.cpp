@@ -5,7 +5,6 @@ A string is a palindrome if it reads the same forward as backward. That means, a
 */
 
 // Use two pointer technique
-// C++ program for the above approach
 
 #include <bits/stdc++.h>
 
