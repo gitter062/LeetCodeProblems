@@ -1,37 +1,35 @@
 /*
 Example 1: Given a string s, return true if it is a palindrome, false otherwise.
 
-A string is a palindrome if it reads the same forward as backward. That means, 
-after reversing it, it is still the same string. For example: "abcdcba", or "racecar".
+A string is a palindrome if it reads the same forward as backward. That means, after reversing it, it is still the same string. For example: "abcdcba", or "racecar".
 */
 
 // Use two pointer technique
 // C++ program for the above approach
 
 #include <bits/stdc++.h>
-
 using namespace std;
 
-bool isPalindrome(string s){
-    int rightPointer = s.size()-1;
-    int leftPointer = 0;
-    while(leftPointer < rightPointer){
-        if(s[leftPointer] != s[rightPointer]){
-            cout << "Not a palindrome" << endl;
+bool isPalindrome(string str){
+    int left = 0;
+    int right = str.size()-1;
+    while(left < right){
+        if (str[left] != str[right]){
+            cout << "Not a Palindrome";
             return false;
-            }
-        leftPointer++;
-        rightPointer--; 
+        }
+        left++;
+        right--;
+            
     }
-    cout << "Its a palindrome" << endl;
+    cout << "This is a Palindrome";
     return true;
 }
 
-int main(){
-    string text1 = "ABCDCBA";
-    string text2 = "ABDCDA";
-    bool answer1 = isPalindrome(text1);
-    bool answer2 = isPalindrome(text2);
 
+int main(void){
+    string string1 = "racecar";
+    cout << isPalindrome(string1);
     return 0;
 }
+
