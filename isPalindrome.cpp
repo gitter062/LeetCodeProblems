@@ -22,13 +22,13 @@ bool isPalindrome(string str){
         while(left<right && !isalnum(str[right])){
             right--;
         }
-        if(str[left] != str[right]){
+        if(islower(str[left]) != islower(str[right])){
             return false;
         }
         left++;
         right--;
     }
-    
+
     return true;
 
 }
