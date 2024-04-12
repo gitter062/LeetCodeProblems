@@ -14,17 +14,23 @@ using namespace std;
 bool isPalindrome(string str){
     int left = 0;
     int right = str.size()-1;
+
     while(left < right){
-        if (str[left] != str[right]){
-            cout << "Not a Palindrome";
+        while(left<right && !isalnum(str[left])){
+            left++;
+        }
+        while(left<right && !isalnum(str[right])){
+            right--;
+        }
+        if(str[left] != str[right]){
             return false;
         }
         left++;
         right--;
-            
     }
-    cout << "This is a Palindrome";
+    
     return true;
+
 }
 
 int main(void){
