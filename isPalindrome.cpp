@@ -28,7 +28,7 @@ bool isPalindrome(string str){
         left++;
         right--;
     }
-
+    cout << "this is a palindrome";
     return true;
 
 }
