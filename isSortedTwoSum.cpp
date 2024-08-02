@@ -14,15 +14,16 @@ using namespace std;
 bool isSortedTwoSum(vector<int>& arr, int target){
     int left = 0, right = arr.size()-1;
     while(left<right){
-        if (arr[right] + arr[left] == target)
+        if(arr[left] + arr[right] == target){
             return true;
-        else if(arr[right] + arr[left] > target)
+        }
+        else if(arr[left] + arr[right] > target){
             right--;
-        else
+        }
+        else{
             left++;
-
+        }
     }
-
     return false;
 }
 
