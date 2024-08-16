@@ -8,33 +8,34 @@ Example 3: Given two sorted integer arrays arr1 and arr2, return a new array tha
 using namespace std;
 
 vector<int> getSortedCombination(vector<int> arr1, vector<int> arr2){
-    vector<int> combinedArray;
-    int first = 0, second = 0;
-    while(first<arr1.size()-1 && second<arr2.size()){
-        if(arr1[first] < arr2[second]){
-            combinedArray.push_back(arr1[first]);
-            first++;
+    vector<int> result;
+    int pointer1 = 0, pointer2 = 0;
+
+    while(pointer1<= arr1.size()-1 && pointer2 <= arr2.size()-1){
+        if(arr1[pointer1] < arr2[pointer2]){
+            result.push_back(arr1[pointer1]);
+            pointer1++;
         }
         else{
-            combinedArray.push_back(arr2[second]);
-            second++;
+            result.push_back(arr2[pointer2]);
+            pointer2++;
         }
     }
-    while(first<arr1.size()){
-        combinedArray.push_back(arr1[first]);
-        first++;
+    while(pointer1 <= arr1.size()-1){
+        result.push_back(arr1[pointer1]);
+        pointer1++;
     }
-    while(second<arr2.size()){
-        combinedArray.push_back(arr2[second]);
-        second++;
+    while(pointer2 <= arr2.size()-1){
+        result.push_back(arr2[pointer2]);
+        pointer2++;
     }
 
-    return combinedArray;
+    return result;
 }
 
 
 int main(){
-    vector<int> arr1 {1,2,3,8};
+    vector<int> arr1 {1,2,6,8};
     vector<int> arr2 {5,6,7};
 
     vector<int> result = getSortedCombination(arr2, arr1);
