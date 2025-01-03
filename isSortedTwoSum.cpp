@@ -11,26 +11,33 @@ For example, given nums = [1, 2, 4, 6, 8, 9, 14, 15] and target = 13, return tru
 
 using namespace std;
 
-bool isSortedTwoSum(vector<int>& arr, int target){
-    int left = 0, right = arr.size()-1;
-    while(left<right){
-        if(arr[left] + arr[right] == target){
-            return true;
+class Solution{
+    public:
+    bool isSortedTwoSum(vector<int>& nums, int target){
+        int left = 0, right = nums.size()-1;
+        while(left < right){
+            int currentSum = nums[left] + nums[right];
+            if(currentSum > target){
+                right--;
+            }
+            else if(currentSum < target){
+                left++;
+            }
+            else{
+                cout << nums[left] << " + " << nums[right] << " ";    
+                return true;
+            }
+
         }
-        else if(arr[left] + arr[right] > target){
-            right--;
-        }
-        else{
-            left++;
-        }
+        return false;
     }
-    return false;
-}
+};
 
 int main(void){
     vector<int> arr {1, 2, 4, 6, 8, 9, 14, 15};
     int target  = 13;
-    if (isSortedTwoSum(arr, target)){
+    Solution solution = Solution();
+    if (solution.isSortedTwoSum(arr, target)){
         cout << "Is Two Sum";
     }
     else
