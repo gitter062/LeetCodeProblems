@@ -24,7 +24,6 @@ class Solution{
                 left++;
             }
             else{
-                cout << nums[left] << " + " << nums[right] << " ";    
                 return true;
             }
 
@@ -36,7 +35,7 @@ class Solution{
 int main(void){
     vector<int> arr {1, 2, 4, 6, 8, 9, 14, 15};
     int target  = 13;
-    Solution solution = Solution();
+    Solution solution;
     if (solution.isSortedTwoSum(arr, target)){
         cout << "Is Two Sum";
     }
