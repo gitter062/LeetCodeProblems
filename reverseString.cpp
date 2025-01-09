@@ -11,28 +11,34 @@ Example 2:
 
 Input: s = ["H","a","n","n","a","h"]
 Output: ["h","a","n","n","a","H"]
+
+Constraints:
+1 <= s.length <= 105
+s[i] is a printable ascii character.
 */
 #include<bits/stdc++.h>
 using namespace std;
 
-void swapCharacters(char& char1, char& char2){
-    char1 = char1 + char2;
-    char2 = char1 - char2;
-    char1 = char1 - char2;
-}
-void reverseString(vector<char>& s) {
-    int left = 0, right = s.size()-1;
-    
-    while(left < right){
-        swapCharacters(s[left], s[right]);
-        right--;
-        left++;
+class swapCharacters {
+    public:
+    void swap(char &a1, char &a2){
+        char temp = a1;
+        a1 = a2;
+        a2 = temp;
     }
-}
-int main(){
-    vector <char> stringInQuestion {'h', 'e', 'l', 'l', 'o'};
-    reverseString(stringInQuestion);
-    for (char value:stringInQuestion)
-        cout<<value << " ";
-    return 0;
-}
+};
+
+class Solution {
+
+public:
+    
+    void reverseString(vector<char>& s) {
+        int left = 0, right = s.size()-1;
+        swapCharacters* swapper = new swapCharacters();
+        while(left < right){
+            swapper->swap(s[left], s[right]);
+            left++; 
+            right--;
+        }
+    }
+};
