@@ -1,5 +1,8 @@
 /*
 Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+
+ 
+
 Example 1:
 
 Input: nums = [-4,-1,0,3,10]
@@ -15,28 +18,23 @@ Output: [4,9,9,49,121]
 
 using namespace std;
 
-vector<int> sortedSquares(vector<int>& nums) {
-    vector<int> answer (nums.size(), 0);
-    int right = nums.size()-1, left = 0;
-    int index = answer.size()-1;
-
-    while(left <= right){
-        if(abs(nums[right]) > abs(nums[left])){
-            answer[index] = nums[right] * nums[right];
-            right--;
+class Solution {
+public:
+    vector<int> sortedSquares(vector<int>& nums) {
+        int left = 0, right = nums.size()-1, i = nums.size()-1;
+        vector<int> ans(nums.size(), 0);
+        
+        while(left <= right){
+            if(abs(nums[left]) < abs(nums[right])){
+                ans[i] = nums[right] * nums[right];
+                right--;
+            }
+            else{
+                ans[i] = nums[left] * nums[left];
+                left++;
+            }
+            i--;
         }
-        else{
-            answer[index] = nums[left] * nums[left];
-            left++;
-        }
-        index--;
+        return ans;
     }
-    return answer;
-}
-
-int main(void){
-    vector<int> nums = {-4,-1,0,3,10};
-    for(int i = 0; i < nums.size(); i++)
-        cout << sortedSquares(nums)[i] << endl;
-    return 0;
-}
+};
